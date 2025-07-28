@@ -5,14 +5,15 @@ import {provideStore} from "@ngrx/store";
 import {counterReducer} from "./app/counter/state/counter.reducer";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {isDevMode} from "@angular/core";
-import {postsReducer} from "./app/posts/state/post.reducer";
-import {appReducer} from "./app/state/app.state";
+import {provideRouter} from "@angular/router";
+import {routes} from "./app/app.routes";
 
 bootstrapApplication(AppComponent, {
   ...appConfig,
   providers: [
     ...appConfig.providers,
-    provideStore(appReducer),
+    provideRouter(routes),
+    provideStore(),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
