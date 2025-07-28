@@ -1,0 +1,10 @@
+<div>
+  <div class="my-3">{{ name$ | async }}</div>
+
+  <input type="text" placeholder="Enter a value" [(ngModel)]="value" />
+  <button class="btn btn-primary" (click)="onAdd()">Add to counter</button>
+
+  <div>
+    <button (click)="onChangeName()">Change name !!</button>
+  </div>
+</div>
